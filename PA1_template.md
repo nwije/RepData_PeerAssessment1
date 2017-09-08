@@ -57,6 +57,19 @@ hist(histodata$stepspd, ylim=range(0,10),breaks=25,xlim=range(0,25000),
 ```r
 meand <- mean(histodata$stepspd, na.rm = TRUE)
 mediand <- median(histodata$stepspd, na.rm = TRUE)
+meand
+```
+
+```
+## [1] 10766.19
+```
+
+```r
+mediand
+```
+
+```
+## [1] 10765
 ```
 
 The mean number of steps taken per day is 10766 and the median number of steps taken each day is 10765.
@@ -89,16 +102,14 @@ plot(intervaldata$interval, intervaldata$stepspi, type="l",
 ```r
 row <- which.max(intervaldata$stepspi)
 x <- intervaldata[row,1]
-str(intervaldata)
+x
 ```
 
 ```
-## 'data.frame':	288 obs. of  2 variables:
-##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
-##  $ stepspi : num  1.717 0.3396 0.1321 0.1509 0.0755 ...
+## [1] 835
 ```
 
-The 5 minute interval labeled as 835 (i.e. 835 - 839 minutes) has the highest average number of steps taken in the October to November time period.
+The 5 minute interval labeled as 835 has the highest average number of steps taken in the October to November time period.
 
 
 ### 6. Code to describe and show a strategy for imputing missing data
@@ -231,7 +242,7 @@ head(activity)
 ## 6    NA 2012-10-01       25  0 days Monday
 ```
 
-###7 Histogram of the total number of steps taken each day after missing values are imputed
+###7. Histogram of the total number of steps taken each day after missing values are imputed
 
 Use ddply from the plyr package to create a dataframe holding the number of steps taken per day, and produce histogram
 
@@ -270,6 +281,19 @@ hist(histodata$stepspd, ylim=range(0,10),breaks=25,xlim=range(0,25000),
 ```r
 meand2 <- mean(histodata2$stepspd, na.rm = TRUE)
 mediand2 <- median(histodata2$stepspd, na.rm = TRUE)
+meand2
+```
+
+```
+## [1] 10821.21
+```
+
+```r
+mediand2
+```
+
+```
+## [1] 11015
 ```
 
 The mean number of steps taken per day is 10821 and the median number of steps taken each day is 11015. 
